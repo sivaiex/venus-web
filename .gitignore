@@ -1,0 +1,5 @@
+.nide
+.project
+.settings
+node_modules
+/bin/
