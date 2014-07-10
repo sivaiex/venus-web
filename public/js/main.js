@@ -2,7 +2,7 @@ var AppRouter = Backbone.Router.extend({
 
     routes: {
         ""                  : "home",
-        "students"          : "list",
+        "students"	        : "list",
         "wines"	            : "list",
         "wines/page/:page"	: "list",
         "wines/add"         : "addWine",
@@ -31,8 +31,6 @@ var AppRouter = Backbone.Router.extend({
         }});
         this.headerView.selectMenuItem('home-menu');
     },
-    
-   
 
     wineDetails: function (id) {
         var wine = new Wine({_id: id});
@@ -59,6 +57,6 @@ var AppRouter = Backbone.Router.extend({
 });
 
 utils.loadTemplate(['HomeView', 'HeaderView', 'WineView', 'WineListItemView', 'AboutView'], function() {
-     ;
+    app = new AppRouter();
     Backbone.history.start();
 });
