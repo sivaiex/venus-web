@@ -36,6 +36,7 @@ window.WineView = Backbone.View.extend({
     },
 
     beforeSave: function () {
+    	alert(1);
         var self = this;
         var check = this.model.validateAll();
         if (check.isValid === false) {
