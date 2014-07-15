@@ -51,13 +51,9 @@ var AppRouter = Backbone.Router.extend({
     },
 	
 	students: function(page) {
-		alert("students");
-        var p = page ? parseInt(page, 10) : 1;
-        alert("students"+p);
+		var p = page ? parseInt(page, 10) : 1;
         var studentList = new StudentCollection();
-        alert("students list"+studentList);
         studentList.fetch({success: function(){
-        	alert("calling server");
             $("#content").html(new StudentListView({model: studentList, page: p}).el);
         }});
         this.headerView.selectMenuItem('home-menu');

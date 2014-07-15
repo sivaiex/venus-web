@@ -9,7 +9,7 @@ window.Paginator = Backbone.View.extend({
 
     render:function () {
 
-        var items = this.model.models;
+        var items = this.model;
         var len = items.length;
         var pageCount = Math.ceil(len / 8);
 

@@ -5,13 +5,7 @@ window.Signin = Backbone.Model.extend({
     initialize: function () {
         this.validators = {};
 
-        this.validators.email = function (value) {
-            return value.length > 0 ? {isValid: true} : {isValid: false, message: "You must enter a Email"};
-        };
-
-        this.validators.grapes = function (value) {
-            return value.length > 0 ? {isValid: true} : {isValid: false, message: "You must enter a Password"};
-        };
+        
   
     },
 
