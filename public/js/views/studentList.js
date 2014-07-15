@@ -5,7 +5,7 @@ window.StudentListView = Backbone.View.extend({
     },
 
     render: function () {
-        var students = this.model.models;
+        var students = this.model.student;
         var len = students.length;
         var startPos = (this.options.page - 1) * 8;
         var endPos = Math.min(startPos + 8, len);

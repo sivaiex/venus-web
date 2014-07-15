@@ -2,8 +2,7 @@ var AppRouter = Backbone.Router.extend({
 
     routes: {
         ""                  : "home",
-        "wines"	: "list",
-        "wines/page/:page"	: "list",
+        "students"	: "students",
         "wines/add"         : "addWine",
         "wines/:id"         : "wineDetails",
         "about"             : "about"
@@ -49,11 +48,25 @@ var AppRouter = Backbone.Router.extend({
         }
         $('#content').html(this.aboutView.el);
         this.headerView.selectMenuItem('about-menu');
-    }
+    },
+	
+	students: function(page) {
+		alert("students");
+        var p = page ? parseInt(page, 10) : 1;
+        alert("students"+p);
+        var studentList = new StudentCollection();
+        alert("students list"+studentList);
+        studentList.fetch({success: function(){
+        	alert("calling server");
+            $("#content").html(new StudentListView({model: studentList, page: p}).el);
+        }});
+        this.headerView.selectMenuItem('home-menu');
+    },
 
 });
 
-utils.loadTemplate(['HomeView', 'HeaderView', 'WineView', 'WineListItemView', 'AboutView'], function() {
+
+utils.loadTemplate(['HomeView', 'HeaderView', 'WineView', 'WineListItemView', 'AboutView','StudentListItemView'], function() {
     app = new AppRouter();
     Backbone.history.start();
 });
